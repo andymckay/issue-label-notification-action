@@ -1,10 +1,11 @@
+
 const core = require('@actions/core');
 const github = require('@actions/github');
 const { correctRecipients, correctMessage } = require('./utils');
 
 async function run() {
   try {
-    const issueNumber = github.context.payload.issue.number;
+    const number = github.context.payload.issue.number || github.context.payload.pull_request.number;
     const owner = github.context.repo.owner;
     const repo = github.context.repo.repo;
     const label = github.context.payload.label.name;
@@ -26,7 +27,7 @@ async function run() {
       const createCommentResponse = await octokit.issues.createComment({
         owner,
         repo,
-        issue_number: issueNumber,
+        issue_number: number,
         body: comment
       });
     } else {
