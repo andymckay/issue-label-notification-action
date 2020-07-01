@@ -503,7 +503,7 @@ const { correctRecipients, correctMessage } = __webpack_require__(278);
 async function run() {
   try {
     console.log(github.context.payload);
-    const number = github.context.payload.issue.number || github.context.payload.pull_request.number;
+    const number = github.context.payload.number;
     const owner = github.context.repo.owner;
     const repo = github.context.repo.repo;
     const label = github.context.payload.label.name;
