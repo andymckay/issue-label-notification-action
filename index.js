@@ -5,7 +5,6 @@ const { correctRecipients, correctMessage } = require('./utils');
 
 async function run() {
   try {
-    console.log(github.context.payload);
     const number = github.context.payload.number;
     const owner = github.context.repo.owner;
     const repo = github.context.repo.repo;
@@ -32,7 +31,7 @@ async function run() {
         body: comment
       });
     } else {
-      console.log("No matching recipients found for label ${label}.");
+      console.log(`No matching recipients found for label ${label}.`);
     }
   } catch (error) {
     console.error(error);
