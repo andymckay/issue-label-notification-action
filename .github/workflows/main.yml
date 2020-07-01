@@ -13,5 +13,6 @@ jobs:
       - uses: ./.
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Hey 👋 the "{label}" was applied to this pull request. Would you be able to look at it please? Thank you 🙇' 
           recipients: |
             actions=@andymckay
